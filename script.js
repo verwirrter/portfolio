@@ -104,7 +104,7 @@ const commands = {
         <div style="display: flex; align-items: center; justify-content: flex-start; margin-bottom: 20px;">
             <img src="https://i.ibb.co/yqYVftv/mwachuu.jpg" alt="jonas@codes" style="width: 200px; height: auto; margin-right: 20px; margin-left: 20px; border-radius: 5px;">
             <div style="flex: 1; margin-left: 20px;">
-                <p>jonas@codes</p>
+                <p>jonass@codes</p>
                 <p>--------------</p>
                 <p>os: windows 11</p>
                 <p>cpu: intel core i5 13600 @ 2700 mhz</p>
