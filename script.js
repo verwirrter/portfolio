@@ -192,7 +192,7 @@ const commands = {
           const latency = end - start;
           return `pinged google! trip-time: ${latency}ms (◕‿◕)`;
         } catch (error) {
-          return `tried to ping google but failed! (╥﹏╥)`
+          return `tried to ping google but failed! (╥﹏╥)`;
         }
       },
 };
