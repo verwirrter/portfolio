@@ -96,7 +96,8 @@ const commands = {
             <p style="background-color:#9BA9FF; color:rgb(241, 241, 255);">ifconfig</p>
             <p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">readme</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">cd</p>
-            <p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">music & music stop</p>
+            <p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">music</p>
+            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music stop</p>
         </div>
     </div>`,
     neofetch: `
@@ -180,6 +181,19 @@ const commands = {
         lineNumber = 1;
         return 'terminal cleared.';
     },
+    ping: async () => {
+        const start = new Date().getTime();
+  
+        try {
+          const ping = await fetch('https://www.google.com');
+          const end = new Date().getTime();
+  
+          const latency = end - start;
+          return `pinged google! trip-time: ${latency}ms (◕‿◕)`;
+        } catch (error) {
+          return `tried to ping google but failed! (╥﹏╥)`
+        }
+      },
 };
 
 let lineNumber = 4;
