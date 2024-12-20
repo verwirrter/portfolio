@@ -96,7 +96,6 @@ const commands = {
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">ifconfig</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">readme</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">cd</p>
-            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">ping</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music stop</p>
         </div>
@@ -181,21 +180,6 @@ const commands = {
         terminalOutput.innerHTML = '';
         lineNumber = 1;
         return 'terminal cleared.';
-    },
-      ping: async () => {
-        const start = performance.now();
-        try {
-            const response = await fetch('https://www.jonass.codes');
-            if (response.ok) {
-                const end = performance.now();
-                const latency = end - start;
-                return `ping successful! server responded in ${latency.toFixed(2)} ms (◕‿◕)`;
-            } else {
-                return `ping failed. server responded with status ${response.status} (╥﹏╥)`;
-            }
-        } catch (error) {
-            return 'ping failed. unable to reach the server. (╥﹏╥)';
-        }
     }
 };
 
