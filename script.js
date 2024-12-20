@@ -90,15 +90,15 @@ const commands = {
         <p style="font-weight: bold; text-decoration: underline;">Available Commands</p>
         <div style="display: flex; flex-wrap: wrap; gap: 5px;">
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">help</p>
-            <p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">clear</p>
+            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">clear</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">neofetch</p>
-            <p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">whoami</p>
+            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">whoami</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">ifconfig</p>
-            <p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">readme</p>
+            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">readme</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">cd</p>
-            <p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">ping</p>
+            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">ping</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music</p>
-            <p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">music stop</p>
+            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music stop</p>
         </div>
     </div>`,
     neofetch: `
