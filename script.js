@@ -186,7 +186,7 @@ const commands = {
         const start = new Date().getTime();
   
         try {
-          const ping = await fetch('https://www.google.com');
+          const ping = await fetch('https://www.google.com', { method: 'HEAD' });
           const end = new Date().getTime();
   
           const latency = end - start;
