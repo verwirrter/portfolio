@@ -186,13 +186,13 @@ const commands = {
         const start = new Date().getTime();
   
         try {
-          const ping = await fetch('https://www.google.com', { method: 'HEAD' });
+          const ping = await fetch('https://www.jonass.codes', { method: 'HEAD' });
           const end = new Date().getTime();
   
           const latency = end - start;
-          return `pinged google! trip-time: ${latency}ms (◕‿◕)`;
+          return `pinged! trip-time: ${latency}ms (◕‿◕)`;
         } catch (error) {
-          return `tried to ping google but failed! (╥﹏╥)`;
+          return `tried to ping but failed! (╥﹏╥)`;
         }
       },
 };
