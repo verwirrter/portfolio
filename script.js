@@ -182,19 +182,21 @@ const commands = {
         lineNumber = 1;
         return 'terminal cleared.';
     },
-    ping: async () => {
-        const start = new Date().getTime();
-  
+      ping: async () => {
+        const start = performance.now();
         try {
-          const ping = await fetch('https://www.jonass.codes', { method: 'HEAD' });
-          const end = new Date().getTime();
-  
-          const latency = end - start;
-          return `pinged! trip-time: ${latency}ms (◕‿◕)`;
+            const response = await fetch('https://www.jonass.codes');
+            if (response.ok) {
+                const end = performance.now();
+                const latency = end - start;
+                return `ping successful! server responded in ${latency.toFixed(2)} ms (◕‿◕)`;
+            } else {
+                return `ping failed. server responded with status ${response.status} (╥﹏╥)`;
+            }
         } catch (error) {
-          return `tried to ping but failed! (╥﹏╥)`;
+            return 'ping failed. unable to reach the server. (╥﹏╥)';
         }
-      },
+    }
 };
 
 let lineNumber = 4;
