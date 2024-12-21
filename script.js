@@ -97,6 +97,7 @@ const commands = {
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">readme</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">cd</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">rices</p>
+            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">ping</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">setup</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music stop</p>
