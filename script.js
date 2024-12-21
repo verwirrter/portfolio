@@ -53,35 +53,57 @@ let matrixRain = {
 };
 
 terminalInput.addEventListener('input', () => {
-  const inputText = terminalInput.value.trim().toLowerCase();
-
-  // Get matching commands
-  const matchingCommands = Object.keys(commands).filter(cmd => cmd.startsWith(inputText));
-
-  if (matchingCommands.length === 1) {
-      terminalInput.value = matchingCommands[0];
-      terminalInput.setSelectionRange(inputText.length, matchingCommands[0].length);
-  }
-});
-
-terminalInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Tab') {
+    const inputText = terminalInput.value.toLowerCase();
+    const cursorPosition = terminalInput.selectionStart;
+  
+    const matchingCommands = Object.keys(commands).filter(cmd => cmd.startsWith(inputText));
+  
+    if (matchingCommands.length === 1 && inputText.length > 0) {
+      const fullCommand = matchingCommands[0];
+      terminalInput.value = fullCommand;
+      terminalInput.setSelectionRange(cursorPosition, fullCommand.length);
+    }
+  });
+  
+  terminalInput.addEventListener('keydown', (e) => {
+    const { selectionStart, selectionEnd } = terminalInput;
+  
+    if (e.key === 'Tab') {
       e.preventDefault();
-      const inputText = terminalInput.value.trim().toLowerCase();
-
+      const inputText = terminalInput.value.toLowerCase();
+      
       const matchingCommands = Object.keys(commands).filter(cmd => cmd.startsWith(inputText));
-
+      
       if (matchingCommands.length === 1) {
-          terminalInput.value = matchingCommands[0];
+        terminalInput.value = matchingCommands[0];
       } else if (matchingCommands.length > 1) {
-          const suggestionText = `Suggestions: ${matchingCommands.join(', ')}`;
-          const suggestionElem = document.createElement('p');
-          suggestionElem.innerHTML = `<span class="line-number">${lineNumber++}</span> ${suggestionText}`;
-          terminalOutput.appendChild(suggestionElem);
-          terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        const suggestionText = `Suggestions: ${matchingCommands.join(', ')}`;
+        const suggestionElem = document.createElement('p');
+        suggestionElem.innerHTML = `<span class="line-number">${lineNumber++}</span> ${suggestionText}`;
+        terminalOutput.appendChild(suggestionElem);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
       }
-  }
-});
+    } else if (e.key === 'ArrowRight') {
+      if (selectionStart !== selectionEnd) {
+        terminalInput.setSelectionRange(selectionEnd, selectionEnd);
+      }
+    } else if (e.key === ' ') {
+      terminalInput.value = terminalInput.value + ' ';
+      e.preventDefault();
+    } else if (e.key === 'Backspace' || e.key === 'Delete') {
+      e.preventDefault();
+      const start = selectionStart;
+      const end = selectionEnd;
+  
+      if (start !== end) {
+        terminalInput.value = terminalInput.value.slice(0, start) + terminalInput.value.slice(end);
+        terminalInput.setSelectionRange(start, start);
+      } else if (start > 0) {
+        terminalInput.value = terminalInput.value.slice(0, start - 1) + terminalInput.value.slice(start);
+        terminalInput.setSelectionRange(start - 1, start - 1); // Move cursor left by 1
+      }
+    }
+  });
 
 
 const commands = {
