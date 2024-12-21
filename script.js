@@ -177,22 +177,25 @@ const commands = {
     setup: `
         <div style="display: flex; align-items: flex-start; justify-content: flex-start; margin-bottom: 20px; margin-top: 20px;">
             <div style="flex: 1; margin-left: 20px;">
-                <p style="font-weight: bold;">my setup specs! =^.^=</p>
-                <p>--------kb--------</p>
-                <p>case: weikav sugar65v2</p>
-                <p>pcb: 65% hotswap rgb triple connection</p>
-                <p>switches: kiiboom jacaranda</p>
-                <p>keycaps: osume lilac dreams marshmellow</p>
-                <p>-------desk-------</p>
-                <p>deskmat: osume ecplise white</p>
-                <p>speaker: marshall acton II</p>
-                <p>headphones: airpods pro 2</p>
-                <p>mouse: logitech g502 lightspeed</p>
-                <p>display 1: samsung ue49mu6270</p>
-                <p>display 2: lg 27gl850</p>
-                <p>-------other-------</p>
-                <p>camera: iphone 16</p>
-                <p>pc specs: type 'neofetch'</p>
+                <p style="font-weight: bold; margin-bottom: 20px;">my setup specs! >.<</p>
+                <div style="display: flex; width: 1000px;">
+                    <div style="display: flex; flex-wrap: wrap; width: 300px;">
+                        <p>---------kb---------</p>
+                        <p>case: weikav sugar65v2</p>
+                        <p>pcb: 65% hotswap rgb triple connection</p>
+                        <p>switches: kiiboom jacaranda</p>
+                        <p>keycaps: osume lilac dreams marshmellow</p>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; width: 400px;">
+                        <p>--------desk--------</p>
+                        <p>deskmat: osume ecplise white</p>
+                        <p>speaker: marshall acton II</p>
+                        <p>headphones: airpods pro 2</p>
+                        <p>mouse: logitech g502 lightspeed</p>
+                        <p>display 1: samsung ue49mu6270</p>
+                        <p>display 2: lg 27gl850</p>
+                    </div>
+                </div>
             </div>
         </div>
     `,
@@ -215,9 +218,9 @@ const commands = {
             const data = await response.json();
             const end = new Date().getTime();
             const latency = end - start;
-            return `pinged! trip-time: ${latency}ms (◕‿◕)`;
+            return `pong! trip-time: ${latency}ms (◕‿◕)`;
         } catch (error) {
-            return 'tried to ping but failed! (╥﹏╥)';
+            return `couldn't catch the ball! (╥﹏╥)`;
         }
     },
     music: () => {
