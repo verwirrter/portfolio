@@ -96,6 +96,7 @@ const commands = {
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">ifconfig</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">readme</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">cd</p>
+            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">rices</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music stop</p>
         </div>
@@ -145,12 +146,73 @@ const commands = {
                 <p>hey! i'm jonas =^.^=</p>
                 <p>i'm a 15 y/o designer & developer from 🇦🇹</p>
                 <p>i love asian food, listening to music and creating new and unique things.</p>
-                <p>be sure to visit my social media by typing 'social'!</p>
+                <p>be sure to visit my github by typing 'readme'!</p>
             </div>
         </div>
     `,
-    readme: '<a href="https://github.com/yourusername/your-repository/blob/main/README.md" class="readme-link" target="_blank">view my readme on github</a>',
-    cd: `<p>i can't afford the server costs to buy more pages&nbsp;</p><p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">(╥﹏╥)</p><p>&nbsp;maybe soon tho if you&nbsp;</p><a href="https://github.com/yourusername/your-repository/blob/main/README.md" class="readme-link" target="_blank"> buy me a coffee!</a>`,
+    setup: `
+        <div style="display: flex; align-items: flex-start; justify-content: flex-start; margin-bottom: 20px;">
+            <pre style="font-family: monospace; font-size: 14px; margin-right: 20px; margin-left: 20px;">
+
+**********************************************************************
+**********************************************************************
+********************************#%%%##********************************
+******************************#####%%%%#******************************
+*****************************########%%%%%#***************************
+****************************#####%%#####%%%%#*************************
+***************************#%#%%%%@#%#####%%%%#***********************
+**************************#*#######***######%%%%%*********************
+*************************#****####*##**##%%###%%%%%#******************
+***********************##*#***#%%#****#%#**######%%%%#****************
+**********************#**#***#%%****##%###**###%###%%%%#**************
+*********************#**#***#%#*****#%%#****%#**#####%%%%#************
+********************###****#%##****%%*****#%#*#**###%###%%%#**********
+*******************#**####%%%#***#%%*****##%#****%%#######%%%#********
+******************#*#***###***###%%*****#%#*****%%#***######%%#*******
+*****************###***#%@*#***###*****#%#****##%%****#%@%#%%*********
+***************#****###%####**#%###***%%%#***#%%*****#@@@%%#**********
+**************###****#%#****##%%#***#%%*****#%#****##%@%%%#***********
+*************#**##**%%@*****##******%%*****%%@#****%@@#%%#************
+************#*#**#####*##*#%%*****####****#%#****#%@@%%%#*************
+***********##****#%%*****#####***#%##****%%*****##@%#%%***************
+*********#***##*#%%%#***#%#*****#%##***#%@@%***#%@@#%%****************
+********#*##***###**###%%%*****##*****##@@%###%%@%%%%*****************
+*******###****#%###***#####***%@%****#%#**#######%%#******************
+******#***####%###***%%******##*****#%#****##%%#%%#*******************
+*****###***###****###%%****#%#****##%#****#%@@#%%#********************
+****###***#%@%****#%#*****#%@#****%%#****#%@@%%%**********************
+***#***####%###**#%##***####*****%%****##%@%%%%***********************
+*###****#%#****###%#****%%*****###*****#@@%#%#************************
+#**##**#%@%****#%*****#%%##***#%%%****%@@%%%#*************************
+*****####*##*#%%##***###*****#%#**#*#%@@%%%#**************************
+**********************************************************************
+            </pre>
+            <div style="flex: 1; margin-left: 20px;">
+            <br>
+            <br>
+            <br>
+                <p style="font-weight: bold;>my setup specs! =^.^=</p>
+                <p>--------1--------</p>
+                <p>case: weikav sugar65v2</p>
+                <p>pcb: 65% hotswap rgb triple connection</p>
+                <p>switches: kiiboom jacaranda</p>
+                <p>keycaps: osume lilac dreams marshmellow</p>
+                <p>--------2--------</p>
+                <p>deskmat: osume ecplise white</p>
+                <p>speaker: marshall acton II</p>
+                <p>headphones: airpods pro 2</p>
+                <p>mouse: logitech g502 lightspeed</p>
+                <p>display 1: samsung ue49mu6270</p>
+                <p>display 2: lg 27gl850</p>
+                <p>--------3--------</p>
+                <p>camera: iphone 16</p>
+                <p>pc specs: type 'neofetch'</p>
+            </div>
+        </div>
+    `,
+    readme: '<a href="https://github.com/verwirrter/verwirrter/blob/main/README.md" class="readme-link" target="_blank">view my readme on github</a>',
+    cd: `<p>i can't afford the server costs to buy more pages&nbsp;</p><p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">(╥﹏╥)</p><p>&nbsp;maybe soon tho if you&nbsp;</p><a href="buymeacoffee.com/jonascodes" class="readme-link" target="_blank"> buy me a coffee!</a>`,
+    rices: `<p>Soon!</p>`,
     ifconfig: async () => {
         try {
             const response = await fetch('https://api.ipify.org?format=json');
