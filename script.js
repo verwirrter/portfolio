@@ -185,6 +185,18 @@ const commands = {
             return 'error fetching your ip address. please try again later.';
         }
     },
+    ping: async () => {
+        const start = new Date().getTime();
+        try {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            const end = new Date().getTime();
+            const latency = end - start;
+            return `pinged! trip-time: ${latency}ms (◕‿◕)`;
+        } catch (error) {
+            return 'tried to ping but failed! (╥﹏╥)';
+        }
+    },
     music: () => {
         if (musicPlayer.paused) {
             musicPlayer.play();
