@@ -197,7 +197,7 @@ const commands = {
         </div>
     `,
     readme: '<a href="https://github.com/verwirrter/verwirrter/blob/main/README.md" class="readme-link" target="_blank">view my readme on github</a>',
-    cd: `<p>i can't afford the server costs to buy more pages&nbsp;</p><p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">(╥﹏╥)</p><p>&nbsp;maybe soon tho if you&nbsp;</p><a href="buymeacoffee.com/jonascodes" class="readme-link" target="_blank"> buy me a coffee!</a>`,
+    cd: `<p>i can't afford the server costs to buy more pages&nbsp;</p><p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">(╥﹏╥)</p><p>&nbsp;maybe soon tho if you&nbsp;</p><a href="https://buymeacoffee.com/jonascodes" class="readme-link" target="_blank"> buy me a coffee!</a>`,
     rices: `<p>Soon! <3</p>`,
     ifconfig: async () => {
         try {
