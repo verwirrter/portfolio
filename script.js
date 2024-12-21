@@ -97,6 +97,7 @@ const commands = {
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">readme</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">cd</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">rices</p>
+            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">setup</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music stop</p>
         </div>
@@ -151,12 +152,9 @@ const commands = {
         </div>
     `,
     setup: `
-        <div style="display: flex; align-items: flex-start; justify-content: flex-start; margin-bottom: 20px;">
+        <div style="display: flex; align-items: flex-start; justify-content: flex-start; margin-bottom: 20px; margin-top: 20px;">
             <div style="flex: 1; margin-left: 20px;">
-            <br>
-            <br>
-            <br>
-                <p style="font-weight: bold;>my setup specs! =^.^=</p>
+                <p style="font-weight: bold;">my setup specs! =^.^=</p>
                 <p>--------kb--------</p>
                 <p>case: weikav sugar65v2</p>
                 <p>pcb: 65% hotswap rgb triple connection</p>
@@ -169,7 +167,7 @@ const commands = {
                 <p>mouse: logitech g502 lightspeed</p>
                 <p>display 1: samsung ue49mu6270</p>
                 <p>display 2: lg 27gl850</p>
-                <p>-------other------</p>
+                <p>-------other-------</p>
                 <p>camera: iphone 16</p>
                 <p>pc specs: type 'neofetch'</p>
             </div>
@@ -177,7 +175,7 @@ const commands = {
     `,
     readme: '<a href="https://github.com/verwirrter/verwirrter/blob/main/README.md" class="readme-link" target="_blank">view my readme on github</a>',
     cd: `<p>i can't afford the server costs to buy more pages&nbsp;</p><p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">(╥﹏╥)</p><p>&nbsp;maybe soon tho if you&nbsp;</p><a href="buymeacoffee.com/jonascodes" class="readme-link" target="_blank"> buy me a coffee!</a>`,
-    rices: `<p>Soon!</p>`,
+    rices: `<p>Soon! <3</p>`,
     ifconfig: async () => {
         try {
             const response = await fetch('https://api.ipify.org?format=json');
