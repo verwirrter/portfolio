@@ -120,6 +120,7 @@ const commands = {
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">cd</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">rices</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">ping</p>
+            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">todo [add/remove/clear]</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">setup</p>
         </div>
     </div>`,
@@ -209,6 +210,43 @@ const commands = {
             return 'error fetching your ip address. please try again later.';
         }
     },
+    todo: (args) => {
+        let todos = JSON.parse(localStorage.getItem('todos')) || [];
+    
+        if (!args) {
+          return `your todos:\n${todos.map((todo, i) => `${i + 1}. ${todo}`).join("\n")}`;
+        }
+    
+        const [subCommand, ...restArgs] = args.split(" ");
+        const additionalArgs = restArgs.join(" ");
+    
+        switch (subCommand) {
+          case "add":
+            if (!additionalArgs) {
+              return `usage: todo add [task]`;
+            }
+            todos.push(additionalArgs);
+            localStorage.setItem('todos', JSON.stringify(todos));
+            return `added "${additionalArgs}" to your todo list.`;
+    
+          case "remove":
+            const index = parseInt(restArgs[0], 10) - 1;
+            if (isNaN(index) || index < 0 || index >= todos.length) {
+              return `usage: todo remove [task number]`;
+            }
+            const removed = todos.splice(index, 1);
+            localStorage.setItem('todos', JSON.stringify(todos));
+            return `removed "${removed}" from your todo list.`;
+    
+          case "clear":
+            todos.length = 0;
+            localStorage.setItem('todos', JSON.stringify(todos));
+            return "todo list cleared.";
+    
+          default:
+            return `unknown todo subcommand: ${subCommand}. available subcommands: add, remove, clear.`;
+        }
+      },
     ping: async () => {
         const start = new Date().getTime();
         try {
@@ -228,39 +266,42 @@ const commands = {
     }
 };
 
-let lineNumber = 4;
+let lineNumber = 3;
 
-terminalInput.addEventListener('keydown', async (e) => {
-  if (e.key === 'Enter') {
-      const input = terminalInput.value.trim().toLowerCase();
-
+terminalInput.addEventListener("keydown", async (e) => {
+    if (e.key === "Enter") {
+      const input = terminalInput.value.trim();
       if (input) {
-          const userCommand = document.createElement('p');
-          userCommand.innerHTML = `<span class="line-number">${lineNumber++}</span> > ${input}`;
-          terminalOutput.appendChild(userCommand);
-
-          let responseText;
-          if (commands[input]) {
-              if (typeof commands[input] === 'function') {
-                  responseText = await commands[input]();
-              } else {
-                  responseText = commands[input];
-              }
-              const response = document.createElement('p');
-              response.innerHTML = `<span class="line-number">${lineNumber++}</span> ${responseText}`;
-              terminalOutput.appendChild(response);
-          } else {
-              const error = document.createElement('p');
-              error.innerHTML = `<span class="line-number">${lineNumber++}</span> command not found: ${input}`;
-              terminalOutput.appendChild(error);
+        const userCommand = document.createElement("p");
+        userCommand.innerHTML = `<span class="line-number">${lineNumber++}</span> > ${input}`;
+        terminalOutput.appendChild(userCommand);
+  
+        const [command, ...args] = input.split(" ");
+        const argString = args.join(" ");
+  
+        if (commands.hasOwnProperty(command)) {
+          try {
+            const result = await commands[command](argString);
+            const response = document.createElement("p");
+            response.innerHTML = `<span class="line-number">${lineNumber++}</span> ${result}`;
+            terminalOutput.appendChild(response);
+          } catch (err) {
+            console.error(err);
+            const error = document.createElement("p");
+            error.innerHTML = `<span class="line-number">${lineNumber++}</span> an error occurred while executing the command.`;
+            terminalOutput.appendChild(error);
           }
-
-          terminalOutput.scrollTop = terminalOutput.scrollHeight;
-          terminalInput.focus();
-          terminalInputContainer.querySelector('.line-number').textContent = lineNumber;
-          terminalInput.value = '';
+        } else {
+          const error = document.createElement("p");
+          error.innerHTML = `<span class="line-number">${lineNumber++}</span> command not found: ${command}`;
+          terminalOutput.appendChild(error);
+        }
+  
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        terminalInput.value = "";
+        terminalInputContainer.querySelector(".line-number").textContent = lineNumber;
       }
-  }
-});
+    }
+  });
 
 matrixRain.start();
