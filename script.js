@@ -218,42 +218,45 @@ const commands = {
         }
     },
     todo: (args) => {
-        let todos = JSON.parse(localStorage.getItem('todos')) || [];
-    
-        if (!args) {
-          return `your todos:\n${todos.map((todo, i) => `${i + 1}. ${todo}`).join("\n")}`;
+      let todos = JSON.parse(localStorage.getItem('todos')) || [];
+  
+      if (!args) {
+        if (todos.length === 0) {
+          return "no todos.";
         }
-    
-        const [subCommand, ...restArgs] = args.split(" ");
-        const additionalArgs = restArgs.join(" ");
-    
-        switch (subCommand) {
-          case "add":
-            if (!additionalArgs) {
-              return `usage: todo add [task]`;
-            }
-            todos.push(additionalArgs);
-            localStorage.setItem('todos', JSON.stringify(todos));
-            return `added "${additionalArgs}" to your todo list.`;
-    
-          case "remove":
-            const index = parseInt(restArgs[0], 10) - 1;
-            if (isNaN(index) || index < 0 || index >= todos.length) {
-              return `usage: todo remove [task number]`;
-            }
-            const removed = todos.splice(index, 1);
-            localStorage.setItem('todos', JSON.stringify(todos));
-            return `removed "${removed}" from your todo list.`;
-    
-          case "clear":
-            todos.length = 0;
-            localStorage.setItem('todos', JSON.stringify(todos));
-            return "todo list cleared.";
-    
-          default:
-            return `unknown todo subcommand: ${subCommand}. available subcommands: add, remove, clear.`;
-        }
-      },
+        return `your todos:\n${todos.map((todo, i) => `${i + 1}. ${todo}`).join("\n")}`;
+      }
+  
+      const [subCommand, ...restArgs] = args.split(" ");
+      const additionalArgs = restArgs.join(" ");
+  
+      switch (subCommand) {
+        case "add":
+          if (!additionalArgs) {
+            return `usage: todo add [task]`;
+          }
+          todos.push(additionalArgs);
+          localStorage.setItem('todos', JSON.stringify(todos));
+          return `added "${additionalArgs}" to your todo list.`;
+  
+        case "remove":
+          const index = parseInt(restArgs[0], 10) - 1;
+          if (isNaN(index) || index < 0 || index >= todos.length) {
+            return `usage: todo remove [task number]`;
+          }
+          const removed = todos.splice(index, 1);
+          localStorage.setItem('todos', JSON.stringify(todos));
+          return `removed "${removed}" from your todo list.`;
+  
+        case "clear":
+          todos.length = 0;
+          localStorage.setItem('todos', JSON.stringify(todos));
+          return "todo list cleared.";
+  
+        default:
+          return `unknown todo subcommand: ${subCommand}. available subcommands: add, remove, clear.`;
+      }
+    },
     ping: async () => {
         const start = new Date().getTime();
         try {
