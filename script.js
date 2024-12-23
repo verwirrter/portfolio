@@ -107,7 +107,8 @@ terminalInput.addEventListener('input', () => {
 
 
 const commands = {
-    help: `
+    help: () => {
+        return `
         <div style="flex: 1; margin-left: 20px;">
         <p style="font-weight: bold; text-decoration: underline;">Available Commands</p>
         <div style="display: flex; flex-wrap: wrap; gap: 5px;">
@@ -123,8 +124,9 @@ const commands = {
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">todo [add/remove/clear]</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">setup</p>
         </div>
-    </div>`,
-    neofetch: `
+    </div>`},
+    neofetch: () => {
+        return `
         <div style="display: flex; align-items: center; justify-content: flex-start; margin-bottom: 20px;">
             <img src="https://i.ibb.co/yqYVftv/mwachuu.jpg" alt="jonas@codes" style="width: 200px; height: auto; margin-right: 20px; margin-left: 20px; border-radius: 5px;">
             <div style="flex: 1; margin-left: 20px;">
@@ -148,8 +150,9 @@ const commands = {
                 </div>
             </div>
         </div>
-    `,
-    whoami: `
+    `},
+    whoami: () => {
+        return `
         <div style="display: flex; align-items: flex-start; justify-content: flex-start; margin-bottom: 20px;">
             <pre style="font-family: monospace; font-size: 14px; margin-right: 20px; margin-left: 20px;">
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀
@@ -172,8 +175,9 @@ const commands = {
                 <p>be sure to visit my github by typing 'readme'!</p>
             </div>
         </div>
-    `,
-    setup: `
+    `},
+    setup: () => {
+        return `
         <div style="display: flex; align-items: flex-start; justify-content: flex-start; margin-bottom: 20px; margin-top: 20px;">
             <div style="flex: 1; margin-left: 20px;">
                 <p style="font-weight: bold; margin-bottom: 20px;">my setup specs! >.<</p>
@@ -197,10 +201,13 @@ const commands = {
                 </div>
             </div>
         </div>
-    `,
-    readme: '<a href="https://github.com/verwirrter/verwirrter/blob/main/README.md" class="readme-link" target="_blank">view my readme on github</a>',
-    cd: `<p>i can't afford the server costs to buy more pages&nbsp;</p><p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">(╥﹏╥)</p><p>&nbsp;maybe soon tho if you&nbsp;</p><a href="https://buymeacoffee.com/jonascodes" class="readme-link" target="_blank"> buy me a coffee!</a>`,
-    rices: `<p>Soon! <3</p>`,
+    `},
+    readme: () => {
+        return '<a href="https://github.com/verwirrter/verwirrter/blob/main/README.md" class="readme-link" target="_blank">view my readme on github</a>'},
+    cd: () => {
+        return `<p>i can't afford the server costs to buy more pages&nbsp;</p><p style="color: #9BA9FF; background-color:rgb(241, 241, 255);">(╥﹏╥)</p><p>&nbsp;maybe soon tho if you&nbsp;</p><a href="https://buymeacoffee.com/jonascodes" class="readme-link" target="_blank"> buy me a coffee!</a>`},
+    rices: () => {
+        return `<p>Soon! <3</p>`},
     ifconfig: async () => {
         try {
             const response = await fetch('https://api.ipify.org?format=json');
