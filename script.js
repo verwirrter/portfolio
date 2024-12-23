@@ -121,8 +121,6 @@ const commands = {
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">rices</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">ping</p>
             <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">setup</p>
-            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music</p>
-            <p style="background-color: #9BA9FF; color:rgb(241, 241, 255);">music stop</p>
         </div>
     </div>`,
     neofetch: `
@@ -221,22 +219,6 @@ const commands = {
             return `pong! trip-time: ${latency}ms (◕‿◕)`;
         } catch (error) {
             return `couldn't catch the ball! (╥﹏╥)`;
-        }
-    },
-    music: () => {
-        if (musicPlayer.paused) {
-            musicPlayer.play();
-            return 'background music started.';
-        } else {
-            return 'music is already playing.';
-        }
-    },
-    'music stop': () => {
-        if (!musicPlayer.paused) {
-            musicPlayer.pause();
-            return 'background music stopped.';
-        } else {
-            return 'music is already stopped.';
         }
     },
     clear: () => {
