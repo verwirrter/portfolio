@@ -311,4 +311,3 @@ terminalInput.addEventListener("keydown", async (e) => {
     }
   });
 
-matrixRain.start();
